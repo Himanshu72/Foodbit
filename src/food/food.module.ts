@@ -4,10 +4,11 @@ import { FoodController } from './food.controller';
 import { MulterModule } from '@nestjs/platform-express';
 import { MongooseModule } from '@nestjs/mongoose';
 import { foodSchema } from './schemas/schema.food';
+import { diskStorage } from 'multer';
 
 @Module({
   imports: [MulterModule.register({
-    dest: './public',
+    dest: './public'
   }),
   MongooseModule.forFeature([{name:"food",schema:foodSchema}])
 ],

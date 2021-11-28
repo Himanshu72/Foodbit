@@ -7,7 +7,7 @@ const model = new TeachableMachine({
   try{
       console.log("--->",image);
     let res=await model.classify({
-	        imageUrl: `https://switchfood.herokuapp.com/${image}`,
+	        imageUrl: `http://switchfood.herokuapp.com/${image}`,
       });
       return res[0];
     }
