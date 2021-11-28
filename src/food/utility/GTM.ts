@@ -6,7 +6,7 @@ const model = new TeachableMachine({
  export const  Predict=async (image)=>{
   try{
     let res=await model.classify({
-	        imageUrl: "https://media-blog.sashido.io/content/images/2020/09/SashiDo_Dog.jpg",
+	        imageUrl: image,
       });
       return res[0];
     }
