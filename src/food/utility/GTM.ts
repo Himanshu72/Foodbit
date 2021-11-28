@@ -5,6 +5,7 @@ const model = new TeachableMachine({
 });
  export const  Predict=async (image)=>{
   try{
+      console.log("--->",image);
     let res=await model.classify({
 	        imageUrl: `https://switchfood.herokuapp.com/${image}`,
       });
