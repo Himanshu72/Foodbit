@@ -6,11 +6,12 @@ const model = new TeachableMachine({
  export const  Predict=async (image)=>{
   try{
     let res=await model.classify({
-	        imageUrl: image,
+	        imageUrl: `https://switchfood.herokuapp.com/${image}`,
       });
       return res[0];
     }
     catch(e){
+        console.log(e)
         throw new HttpException({status:500,error:"Error Occur In Image Recognizer"},500)
     }
 }
