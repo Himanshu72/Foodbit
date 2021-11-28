@@ -40,9 +40,9 @@ export class FoodController {
             originalname: file.originalname,
             filename: file.filename,
         };
-        console.log(Ip);
         
-        return await this.foodService.getFoodInfoWithImage();
+        let Image=`http://${Ip}/${response.filename}`;
+        return await this.foodService.getFoodInfoWithImage(Image);
     }
 
     @Put('/:foodId')

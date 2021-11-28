@@ -40,8 +40,9 @@ export class FoodService {
         return `update food ${foodId} with ${JSON.stringify(food)}`;
     }
 
-    async getFoodInfoWithImage(){
-       let obj=await  Predict("test")
+    async getFoodInfoWithImage(image){
+       let obj=await  Predict(image)
+       console.log(obj)
        // return `update food with image id ${foodId} with ${JSON.stringify(food)}`;
     }
 
