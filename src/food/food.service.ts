@@ -4,6 +4,7 @@ import {Foodinfo, PostFoodDto, PostFoodWithImageDto, UpdateFoodDto, UpdateFoodWi
 import { Model } from 'mongoose';
 import { Mode } from 'fs';
 import { Predict } from './utility/GTM';
+import GlobalUtility from 'src/utility/globalUtility';
 @Injectable()
 export class FoodService {
 
@@ -45,6 +46,7 @@ export class FoodService {
        let obj=await  Predict(image)
        console.log(obj)
        let info=await this.getFood(obj.class);
+       GlobalUtility.deletFile(image);
        return info;
     }
 
