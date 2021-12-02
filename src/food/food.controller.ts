@@ -1,5 +1,6 @@
 import {Body, Get, Post, Param, Controller, Put, Delete, UseInterceptors, UploadedFile, Ip} from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
+import { diskStorage } from 'multer';
 import {PostFoodDto, PostFoodWithImageDto,Foodinfo ,UpdateFoodDto, UpdateFoodWithImageDto } from './dto/food.dto';
 import { FoodService } from './food.service';
 
@@ -28,7 +29,16 @@ export class FoodController {
 
     @Post('/image')
     @UseInterceptors(
-        FileInterceptor('image'),
+        FileInterceptor('image',{storage: diskStorage({
+            // Specify where to save the file
+            destination: (req, file, cb) => {
+              cb(null, 'public');
+            },
+            // Specify the file name
+            filename: (req, file, cb) => {
+              cb(null, Date.now() +".jpg");
+            },
+          })}),
     )
     
    async  getFoodInfoWithImage(
@@ -42,7 +52,8 @@ export class FoodController {
         };
         
         console.log(response)
-        return await this.foodService.getFoodInfoWithImage(response.filename);
+       
+    return await this.foodService.getFoodInfoWithImage(response.filename);
     }
 
     @Put('/:foodId')

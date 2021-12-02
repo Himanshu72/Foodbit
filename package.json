@@ -19,7 +19,6 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json"
-    
   },
   "dependencies": {
     "@nestjs/common": "^8.0.0",
@@ -27,6 +26,7 @@
     "@nestjs/mongoose": "^9.0.1",
     "@nestjs/platform-express": "^8.0.0",
     "@nestjs/serve-static": "^2.2.2",
+    "@sashido/teachablemachine-node": "^1.2.2",
     "mongoose": "^6.0.13",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",

@@ -14,8 +14,9 @@ export class FoodService {
         return all;
     }
 
-    getFood(foodId: string){
-        return `get food: ${foodId}`;
+    async getFood(foodId: string):Promise<Foodinfo>{
+        let info= await this.foodModel.findOne({_id:foodId})
+        return info;
     }
 
     postFood(
@@ -43,7 +44,8 @@ export class FoodService {
     async getFoodInfoWithImage(image){
        let obj=await  Predict(image)
        console.log(obj)
-       // return `update food with image id ${foodId} with ${JSON.stringify(food)}`;
+       let info=await this.getFood(obj.class);
+       return info;
     }
 
     deleteFood(
