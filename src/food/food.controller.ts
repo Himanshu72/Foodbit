@@ -20,13 +20,6 @@ export class FoodController {
         return this.foodService.getFood(foodId);
     }
 
-    @Post()
-    postFood(
-        @Body() body:PostFoodDto
-    ) {
-        return this.foodService.postFood(body);
-    }
-
     @Post('/image')
     @UseInterceptors(
         FileInterceptor('image',{storage: diskStorage({
@@ -56,26 +49,5 @@ export class FoodController {
     return await this.foodService.getFoodInfoWithImage(response.filename);
     }
 
-    @Put('/:foodId')
-    updateFood(
-        @Param('foodId') foodId: string,
-        @Body() food:UpdateFoodDto
-    ){
-        return this.foodService.updateFood(foodId,food);
-    }
-
-    @Put('/:foodId/image')
-    updateFoodWithImage(
-        @Param('foodId') foodId: string,
-        @Body() food:UpdateFoodWithImageDto
-    ){
-        ///return this.foodService.updateFoodWithImage(foodId,food);
-    }
-
-    @Delete('/:foodId')
-    deleteFood(
-        @Param('foodId') foodId: string,
-    ){
-        return this.foodService.deleteFood(foodId);
-    }
+    
 }

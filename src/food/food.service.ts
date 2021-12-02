@@ -20,28 +20,6 @@ export class FoodService {
         return info;
     }
 
-    postFood(
-        food:PostFoodDto
-    ) {
-        return `post food ${JSON.stringify(food)}`;
-    }
-
-    postFoodWithImage(
-        food:PostFoodWithImageDto
-    ) {
-
-        
-        return `post food with image ${JSON.stringify(food)}`;
-    }
-
-
-    updateFood(
-        foodId: string,
-        food:UpdateFoodDto
-    ){
-        return `update food ${foodId} with ${JSON.stringify(food)}`;
-    }
-
     async getFoodInfoWithImage(image){
        let obj=await  Predict(image)
        console.log(obj)
@@ -50,9 +28,4 @@ export class FoodService {
        return info;
     }
 
-    deleteFood(
-        foodId: string,
-    ){
-        return `delete food id ${foodId}`;
-    }
 }
