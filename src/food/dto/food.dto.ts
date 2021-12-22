@@ -39,3 +39,8 @@ export class UpdateFoodDto {
 export class UpdateFoodWithImageDto {
     name: string;
 }
+
+export class altFood{
+    _id:String;
+    data:[String];
+}

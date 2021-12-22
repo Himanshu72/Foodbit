@@ -20,6 +20,12 @@ export class FoodController {
         return this.foodService.getFood(foodId);
     }
 
+    @Get("/alt/:tag")
+    async getAltFood(@Param('tag') tag:String ){
+        
+        return await this.foodService.getAltFood(tag);
+    }
+
     @Post('/image')
     @UseInterceptors(
         FileInterceptor('image',{storage: diskStorage({
